@@ -26,16 +26,16 @@ const LoginBox = styled.div`
         a{color:darkcyan; &:hover{color: cyan;}}
     }
 `;
-const LoginCom = () => {
+const LoginCom = ({onChange, onSubmit, username, password}) => {
     return(<>
         <AuthBlock>
             <LoginBox>
                 <div className="logo-area">
                     <Link to="/">탱이냥 이동</Link>
                 </div>
-                <StyleForm>
-                    <StyleInput placeholder="input username"/>
-                    <StyleInput placeholder="input password"/>
+                <StyleForm onSubmit={onSubmit}>
+                    <StyleInput type="text" value={username} name="username" onChange={onChange} placeholder="input username"/>
+                    <StyleInput type="text" value={password} name="password" onChange={onChange} placeholder="input password"/>
                     <StyleButton width="100%" background={["178,235,244",0.5]}>로그인</StyleButton>
                 </StyleForm>
             </LoginBox>
