@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HeaderCom from "../components/common/HeaderCom";
 import RegCom from "../components/RegCom";
 import { changeinput } from "../redux/inputSlice";
+<<<<<<< HEAD
 import { useRef } from "react";
 import { registerThunk } from "../service/authThunk";
 import { useNavigate} from "react-router-dom";
@@ -14,10 +15,20 @@ const RegCon = () => {
         return state.input.register;
     })
     const {result, loading, error} = useSelector(state => state.auth)
+=======
+
+const RegCon = () => {
+    const dispatch = useDispatch();
+    const {username, password, role} = useSelector(state=>{
+        console.log("reg con state : ", state)
+        return state.input.register;
+    })
+>>>>>>> 03d8c8cae655668dbdf0059ee784a38f273c21e6
     const onChange = (e) => {
         const {name, value} = e.target;
         dispatch(changeinput({name:name, value:value, form:"register"}))
     }
+<<<<<<< HEAD
     const inputCheck = useRef([])
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -40,6 +51,14 @@ const RegCon = () => {
     return(<>
         <HeaderCom/>
         <RegCom result={result} loading={loading} error={error} inputCheck={inputCheck} onChange={onChange} onSubmit={onSubmit} username={username} password={password} role={role}/>
+=======
+    const onSubmit = (e) => {
+        e.preventDefault();
+    }
+    return(<>
+        <HeaderCom/>
+        <RegCom onChange={onChange} onSubmit={onSubmit} username={username} password={password} role={role}/>
+>>>>>>> 03d8c8cae655668dbdf0059ee784a38f273c21e6
     </>)
 }
 export default RegCon;
