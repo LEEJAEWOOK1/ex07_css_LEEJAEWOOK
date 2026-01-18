@@ -23,3 +23,9 @@ export const registerThunk = createAsyncThunk (
         return 1;
     }
 );
+export const memberThunk = createAsyncThunk(
+    "memberThunk",
+    async () => {
+        return data_set;
+    }
+);
